@@ -13,53 +13,70 @@ export const HeroSection = () => {
           alt="Путешествие в горы"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center">
-
-        {/* Text block */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
+      <div className="relative z-10 container mx-auto px-4 flex flex-col items-center text-center">
+        
+        {/* Заголовок */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-white drop-shadow-lg"
+          className="
+            font-extrabold 
+            text-[clamp(2.2rem,8vw,5rem)] 
+            leading-[1.1] 
+            max-w-[900px] 
+            mx-auto 
+            text-white
+          "
         >
-          <motion.h1
-            className="font-extrabold text-5xl md:text-7xl whitespace-nowrap leading-tight"
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            НАХОДИ И СОЗДАВАЙ
-          </motion.h1>
+          НАХОДИ И СОЗДАВАЙ
+        </motion.h1>
 
-          <motion.h2
-            className="font-extrabold text-4xl md:text-6xl text-primary mt-3 whitespace-nowrap leading-tight"
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-          >
-            идеальные путешествия
-          </motion.h2>
-
-          <motion.p
-            className="mt-4 text-lg md:text-xl text-neutral-200 whitespace-nowrap leading-normal"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            персональные маршруты, групповые поездки и авторские туры — всё в одном месте
-          </motion.p>
-        </motion.div>
-
-        {/* Search box */}
-        <motion.div
-          className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto mt-10"
-          initial={{ opacity: 0, y: 35 }}
+        {/* Подзаголовок */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
+          transition={{ duration: 1 }}
+          className="
+            font-extrabold 
+            text-[clamp(1.8rem,6.5vw,3.5rem)] 
+            leading-[1.1]
+            max-w-[900px] 
+            mx-auto 
+            mt-2 
+            text-primary
+          "
+        >
+          идеальные путешествия
+        </motion.h2>
+
+        {/* Маленький текст */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          className="
+            mt-4 
+            text-[clamp(0.9rem,2.2vw,1.3rem)] 
+            text-neutral-200 
+            max-w-[700px] 
+            mx-auto 
+            leading-relaxed
+          "
+        >
+          персональные маршруты, групповые поездки и авторские туры — всё в одном месте
+        </motion.p>
+
+        {/* Search Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-3xl w-full mx-auto mt-8"
         >
           {/* Search input */}
           <div className="relative mb-4">
@@ -80,23 +97,19 @@ export const HeroSection = () => {
               </div>
               <ChevronDown className="w-4 h-4" />
             </button>
-
             <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
               <span className="text-sm">Формат</span>
               <ChevronDown className="w-4 h-4" />
             </button>
-
             <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
               <span className="text-sm">Бюджет</span>
               <ChevronDown className="w-4 h-4" />
             </button>
-
             <Button variant="hero" className="w-full">
               Найти тур
             </Button>
           </div>
         </motion.div>
-
       </div>
     </section>
   );
