@@ -10,4 +10,11 @@ export default defineConfig({
     },
   },
   plugins: [react()],
+  define: {
+  'process.env': {
+      VITE_SUPABASE_URL: JSON.stringify('https://xxxxx.supabase.co'),
+      VITE_SUPABASE_PUBLISHABLE_KEY: JSON.stringify('public-anon-key-here'),
+  }
+}
+
 })
