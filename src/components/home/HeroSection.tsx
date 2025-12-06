@@ -1,6 +1,7 @@
 import { Search, Calendar, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-travel.jpg";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
@@ -17,30 +18,49 @@ export const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        
-        {/* ---- FIXED TEXT BLOCK ---- */}
-        <div className="max-w-4xl mx-auto text-white drop-shadow-lg">
-          
-          {/* Line 1 */}
-          <h1 className="font-extrabold text-5xl md:text-7xl whitespace-nowrap leading-tight">
+
+        {/* Text block */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto text-white drop-shadow-lg"
+        >
+          <motion.h1
+            className="font-extrabold text-5xl md:text-7xl whitespace-nowrap leading-tight"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
             НАХОДИ И СОЗДАВАЙ
-          </h1>
+          </motion.h1>
 
-          {/* Line 2 */}
-          <h2 className="font-extrabold text-4xl md:text-6xl text-primary mt-3 whitespace-nowrap leading-tight">
+          <motion.h2
+            className="font-extrabold text-4xl md:text-6xl text-primary mt-3 whitespace-nowrap leading-tight"
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+          >
             идеальные путешествия
-          </h2>
+          </motion.h2>
 
-          {/* Line 3 */}
-          <p className="mt-4 text-lg md:text-xl text-neutral-200 whitespace-nowrap leading-normal">
+          <motion.p
+            className="mt-4 text-lg md:text-xl text-neutral-200 whitespace-nowrap leading-normal"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
             персональные маршруты, групповые поездки и авторские туры — всё в одном месте
-          </p>
+          </motion.p>
+        </motion.div>
 
-        </div>
-
-        {/* ---- Search Box ---- */}
-        <div className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto mt-10">
-          
+        {/* Search box */}
+        <motion.div
+          className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto mt-10"
+          initial={{ opacity: 0, y: 35 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+        >
           {/* Search input */}
           <div className="relative mb-4">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
@@ -53,7 +73,6 @@ export const HeroSection = () => {
 
           {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-
             <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
@@ -75,9 +94,8 @@ export const HeroSection = () => {
             <Button variant="hero" className="w-full">
               Найти тур
             </Button>
-
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>
