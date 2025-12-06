@@ -17,18 +17,21 @@ export const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-3xl mx-auto animate-slide-up">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-center text-white leading-tight">
+        <div className="text-center text-white drop-shadow-lg">
+          <h1 className="font-extrabold text-5xl md:text-7xl leading-[1.05]">
             НАХОДИ И СОЗДАВАЙ
           </h1>
 
-          <h2 className="text-4xl md:text-6xl font-extrabold text-center text-primary whitespace-nowrap">
-            идеальные путешествия
+          <h2 className="font-extrabold text-4xl md:text-6xl text-primary mt-2 whitespace-nowrap leading-[1.05]">
+             идеальные путешествия
           </h2>
 
-          <p className="text-card/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            персональные маршруты, групповые поездки и авторские туры — всё в одном месте
+          <p className="mt-4 text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto leading-relaxed">
+            персональные маршруты, групповые поездки и авторские туры — всё в одном месте<br />
           </p>
+        </div>
+      </div>
+
 
           {/* Search Box */}
           <div className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto">
