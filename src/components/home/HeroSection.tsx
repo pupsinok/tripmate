@@ -1,11 +1,10 @@
 import { Search, Calendar, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-travel.jpg";
-import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[650px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -13,53 +12,35 @@ export const HeroSection = () => {
           alt="Путешествие в горы"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
+      <div className="relative z-10 container mx-auto px-4 text-center">
         
-        {/* === АНИМИРОВАННЫЕ ЗАГОЛОВКИ === */}
-        <motion.h1
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="font-extrabold leading-tight
-                     text-[8vw] md:text-6xl lg:text-7xl 
-                     text-white"
-        >
-          НАХОДИ И СОЗДАВАЙ
-        </motion.h1>
+        {/* ---- FIXED TEXT BLOCK ---- */}
+        <div className="max-w-4xl mx-auto text-white drop-shadow-lg">
+          
+          {/* Line 1 */}
+          <h1 className="font-extrabold text-5xl md:text-7xl whitespace-nowrap leading-tight">
+            НАХОДИ И СОЗДАВАЙ
+          </h1>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-          className="font-extrabold leading-tight text-primary 
-                     text-[7vw] md:text-5xl lg:text-6xl mt-2 
-                     whitespace-nowrap"
-        >
-          идеальные путешествия
-        </motion.h2>
+          {/* Line 2 */}
+          <h2 className="font-extrabold text-4xl md:text-6xl text-primary mt-3 whitespace-nowrap leading-tight">
+            идеальные путешествия
+          </h2>
 
-        <motion.p
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
-          className="mt-4 text-neutral-200 
-                     text-[3.6vw] md:text-lg lg:text-xl 
-                     max-w-2xl mx-auto"
-        >
-          персональные маршруты, групповые поездки и авторские туры — всё в одном месте
-        </motion.p>
+          {/* Line 3 */}
+          <p className="mt-4 text-lg md:text-xl text-neutral-200 whitespace-nowrap leading-normal">
+            персональные маршруты, групповые поездки и авторские туры — всё в одном месте
+          </p>
 
-        {/* === Search Box === */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.45 }}
-          className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto mt-6"
-        >
+        </div>
+
+        {/* ---- Search Box ---- */}
+        <div className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto mt-10">
+          
           {/* Search input */}
           <div className="relative mb-4">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
@@ -72,6 +53,7 @@ export const HeroSection = () => {
 
           {/* Filters */}
           <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+
             <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
@@ -93,8 +75,10 @@ export const HeroSection = () => {
             <Button variant="hero" className="w-full">
               Найти тур
             </Button>
+
           </div>
-        </motion.div>
+        </div>
+
       </div>
     </section>
   );
