@@ -23,49 +23,49 @@ export const HeroSection = () => {
           </h1>
 
           <h2 className="font-extrabold text-4xl md:text-6xl text-primary mt-2 whitespace-nowrap leading-[1.05]">
-             идеальные путешествия
+            идеальные путешествия
           </h2>
 
           <p className="mt-4 text-lg md:text-xl text-neutral-200 max-w-2xl mx-auto leading-relaxed">
-            персональные маршруты, групповые поездки и авторские туры — всё в одном месте<br />
+            персональные маршруты, групповые поездки и авторские туры — всё в одном месте
           </p>
         </div>
-   
 
+        {/* Search Box */}
+        <div className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto mt-8">
+          {/* Search input */}
+          <div className="relative mb-4">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Поиск мест и направлений"
+              className="w-full pl-12 pr-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+            />
+          </div>
 
-          {/* Search Box */}
-          <div className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-2xl mx-auto">
-            {/* Search input */}
-            <div className="relative mb-4">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Поиск мест и направлений"
-                className="w-full pl-12 pr-4 py-3 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-              />
-            </div>
+          {/* Filters */}
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
+            <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span className="text-sm">Даты</span>
+              </div>
+              <ChevronDown className="w-4 h-4" />
+            </button>
 
-            {/* Filters */}
-            <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
-              <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" />
-                  <span className="text-sm">Даты</span>
-                </div>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
-                <span className="text-sm">Формат</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
-                <span className="text-sm">Бюджет</span>
-                <ChevronDown className="w-4 h-4" />
-              </button>
-              <Button variant="hero" className="w-full">
-                Найти тур
-              </Button>
-            </div>
+            <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
+              <span className="text-sm">Формат</span>
+              <ChevronDown className="w-4 h-4" />
+            </button>
+
+            <button className="flex items-center justify-between px-4 py-2.5 rounded-lg border border-input bg-background text-muted-foreground hover:border-primary/50 transition-colors">
+              <span className="text-sm">Бюджет</span>
+              <ChevronDown className="w-4 h-4" />
+            </button>
+
+            <Button variant="hero" className="w-full">
+              Найти тур
+            </Button>
           </div>
         </div>
       </div>
