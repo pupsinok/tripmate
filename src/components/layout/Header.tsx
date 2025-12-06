@@ -1,7 +1,15 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Search, Heart, User, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Search, Heart, User, Menu, X, LogOut } from "lucide-react";
+import { useState, useEffect } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { User as SupabaseUser } from "@supabase/supabase-js";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
   { label: "Главная", href: "/" },
@@ -13,7 +21,30 @@ const navLinks = [
 
 export const Header = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
+
+  useEffect(() => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(
+      (event, session) => {
+        setUser(session?.user ?? null);
+      }
+    );
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    navigate("/");
+  };
+
+  const userName = user?.user_metadata?.first_name || user?.email?.split("@")[0];
 
   return (
     <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
@@ -52,10 +83,33 @@ export const Header = () => {
               <Heart className="w-5 h-5" />
             </Button>
             <div className="hidden md:flex items-center gap-2">
-              <Button variant="ghost" size="sm">
-                Вход
-              </Button>
-              <Button size="sm">Регистрация</Button>
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="gap-2">
+                      <User className="w-4 h-4" />
+                      {userName}
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={handleLogout} className="gap-2 cursor-pointer">
+                      <LogOut className="w-4 h-4" />
+                      Выйти
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <>
+                  <Link to="/auth?mode=login">
+                    <Button variant="ghost" size="sm">
+                      Вход
+                    </Button>
+                  </Link>
+                  <Link to="/auth?mode=register">
+                    <Button size="sm">Регистрация</Button>
+                  </Link>
+                </>
+              )}
             </div>
             <Button
               variant="ghost"
@@ -87,10 +141,23 @@ export const Header = () => {
                 </Link>
               ))}
               <div className="flex gap-2 mt-4">
-                <Button variant="outline" className="flex-1">
-                  Вход
-                </Button>
-                <Button className="flex-1">Регистрация</Button>
+                {user ? (
+                  <Button variant="outline" className="w-full gap-2" onClick={handleLogout}>
+                    <LogOut className="w-4 h-4" />
+                    Выйти
+                  </Button>
+                ) : (
+                  <>
+                    <Link to="/auth?mode=login" className="flex-1">
+                      <Button variant="outline" className="w-full">
+                        Вход
+                      </Button>
+                    </Link>
+                    <Link to="/auth?mode=register" className="flex-1">
+                      <Button className="w-full">Регистрация</Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </nav>
           </div>
