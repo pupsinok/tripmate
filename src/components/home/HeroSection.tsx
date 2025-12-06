@@ -18,11 +18,14 @@ export const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-3xl mx-auto animate-slide-up">
-          <h1 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl text-card mb-4 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-center text-white leading-tight">
             НАХОДИ И СОЗДАВАЙ
-            <br />
-            <span className="text-primary">идеальные путешествия</span>
           </h1>
+
+          <h2 className="text-4xl md:text-6xl font-extrabold text-center text-primary whitespace-nowrap">
+            идеальные путешествия
+          </h2>
+
           <p className="text-card/90 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
             персональные маршруты, групповые поездки и авторские туры — всё в одном месте
           </p>
