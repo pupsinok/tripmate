@@ -8,36 +8,36 @@ const NotFound = () => {
 
       <Header />
 
-      {/* Центровочный блок */}
       <div
         className="
-          flex-1 flex flex-col items-center justify-center 
-          px-4 text-center
+          flex-1 
+          flex flex-col 
+          items-center justify-center
+          px-4 
+          py-12 md:py-20
+          text-center 
+          gap-6
         "
       >
-        {/* 404 */}
-        <h1 className="text-7xl md:text-8xl font-extrabold text-primary mb-6 animate-fade-in">
+        <h1 className="text-7xl md:text-8xl font-extrabold text-primary animate-fade-in">
           404
         </h1>
 
-        {/* Title */}
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 animate-slide-up">
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground animate-slide-up">
           Страница не найдена
         </h2>
 
-        {/* Subtitle */}
         <p
           className="
             text-lg md:text-xl text-muted-foreground 
-            max-w-xl mx-auto leading-relaxed 
-            mb-10 animate-fade-in animation-delay-200
+            max-w-xl leading-relaxed 
+            animate-fade-in animation-delay-200
           "
         >
-          Похоже, вы забрели не туда. Давайте вернёмся на главную 
+          Похоже, вы забрели не туда. Давайте вернёмся на главную
           и продолжим путешествие ✈️
         </p>
 
-        {/* Button */}
         <Link
           to="/"
           className="
@@ -55,7 +55,6 @@ const NotFound = () => {
 
       <Footer />
 
-      {/* Animations */}
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; }
