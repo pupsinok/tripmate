@@ -8,44 +8,50 @@ const NotFound = () => {
 
       <Header />
 
-      {/* MAIN CONTENT */}
-      <main className="
-        flex-1 flex flex-col items-center justify-center 
-        text-center px-4 
-        mt-10 md:mt-16 
-        mb-20 md:mb-32
-      ">
+      {/* Центровочный блок */}
+      <div
+        className="
+          flex-1 flex flex-col items-center justify-center 
+          px-4 text-center
+        "
+      >
+        {/* 404 */}
         <h1 className="text-7xl md:text-8xl font-extrabold text-primary mb-6 animate-fade-in">
           404
         </h1>
 
+        {/* Title */}
         <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 animate-slide-up">
           Страница не найдена
         </h2>
 
-        <p className="
-          text-lg md:text-xl text-muted-foreground 
-          max-w-xl mx-auto leading-relaxed mb-10 animate-fade-in animation-delay-200
-        ">
-          Похоже, вы забрели не туда. Давайте вернёмся на главную и продолжим путешествие ✈️
+        {/* Subtitle */}
+        <p
+          className="
+            text-lg md:text-xl text-muted-foreground 
+            max-w-xl mx-auto leading-relaxed 
+            mb-10 animate-fade-in animation-delay-200
+          "
+        >
+          Похоже, вы забрели не туда. Давайте вернёмся на главную 
+          и продолжим путешествие ✈️
         </p>
 
-        {/* BUTTON WITH ANIMATION */}
-        <div className="text-center mb-20 md:mb-28 animate-fade-in animation-delay-300">
-          <Link
-            to="/"
-            className="
-              inline-block px-8 py-4 
-              bg-primary text-white font-semibold text-lg rounded-xl shadow-lg 
-              transition-all duration-300 ease-out
-              hover:scale-105 hover:shadow-xl hover:bg-primary/90
-              active:scale-95
-            "
-          >
-            🏠 Вернуться на главную
-          </Link>
-        </div>
-      </main>
+        {/* Button */}
+        <Link
+          to="/"
+          className="
+            inline-block px-8 py-4 
+            bg-primary text-white font-semibold text-lg rounded-xl shadow-lg 
+            transition-all duration-300 ease-out
+            hover:scale-105 hover:shadow-xl hover:bg-primary/90
+            active:scale-95
+            animate-fade-in animation-delay-300
+          "
+        >
+          🏠 Вернуться на главную
+        </Link>
+      </div>
 
       <Footer />
 
