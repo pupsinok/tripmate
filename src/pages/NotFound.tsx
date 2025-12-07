@@ -1,41 +1,51 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
-export default function NotFound() {
+const NotFound = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="min-h-screen flex flex-col bg-background">
       <Header />
 
-      <main className="flex-1 flex flex-col items-center justify-center text-center px-6">
-        {/* Wrapper with fade animation */}
-        <div className="animate-fade-in">
-          <h1 className="text-[120px] md:text-[160px] font-extrabold text-primary drop-shadow-lg">
-            404
-          </h1>
+      <main className="flex-1 flex flex-col items-center justify-center px-4 text-center">
+        {/* Цифры 404 */}
+        <h1 className="text-7xl md:text-[150px] font-extrabold text-primary drop-shadow-md mb-6 animate-fade-in">
+          404
+        </h1>
 
-          <p className="text-2xl md:text-3xl font-semibold text-foreground mt-2">
-            Страница не найдена
-          </p>
+        {/* Заголовок */}
+        <h2 className="text-2xl md:text-4xl font-bold text-foreground mb-4 animate-fade-in">
+          Страница не найдена
+        </h2>
 
-          <p className="text-muted-foreground max-w-md mx-auto mt-3 text-lg">
-            Похоже, вы забрели не туда.  
-            Давайте вернёмся на главную и продолжим путешествие ✈️
-          </p>
+        {/* Описание */}
+        <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto animate-fade-in">
+          Похоже, вы забрели не туда. Давайте вернёмся на главную и продолжим
+          путешествие ✈️
+        </p>
 
-          <Link to="/" className="inline-block mt-8">
-            <Button size="lg" variant="hero" className="px-10 py-6 text-lg">
-              🏠 Вернуться на главную
-            </Button>
+        {/* 🔥 ТВОЯ АНИМИРОВАННАЯ КНОПКА */}
+        <div className="text-center mt-6 mb-16 md:mb-24 animate-fade-in">
+          <Link
+            to="/"
+            className="
+              inline-block px-8 py-4
+              bg-primary text-white font-semibold text-lg rounded-xl shadow-lg
+              transition-all duration-300 ease-out
+              hover:scale-105 hover:shadow-xl hover:bg-primary/90
+              active:scale-95
+              animate-bounce-soft
+            "
+          >
+            🏠 Вернуться на главную
           </Link>
-
-          {/* Optional illustration */}
-       
         </div>
       </main>
 
       <Footer />
     </div>
   );
-}
+};
+
+export default NotFound;
+
