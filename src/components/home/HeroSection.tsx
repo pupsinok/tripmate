@@ -2,12 +2,10 @@ import { Search, Calendar, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-travel.jpg";
 
-// !!! Добавили framer-motion обратно !!!
-import { motion } from "framer-motion";
-
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-[620px] md:min-h-[750px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
+
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -15,65 +13,67 @@ export const HeroSection = () => {
           alt="Путешествие в горы"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-foreground/40 via-foreground/30 to-foreground/60" />
       </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
-        <motion.div
-          className="text-center text-white drop-shadow-lg mt-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Title */}
-          <motion.h1
+
+        {/* Animated Title Block */}
+        <div className="text-center text-white mt-6 mb-6 animate-fade-in opacity-0 animation-delay-300">
+
+          {/* FIRST LINE */}
+          <h1
             className="
               font-extrabold 
-              text-4xl sm:text-5xl md:text-6xl lg:text-7xl
-              leading-tight max-w-[90%] mx-auto
+              whitespace-nowrap 
+              tracking-tight
+              mx-auto
+              animate-slide-up opacity-0
+              text-[clamp(1.7rem,6vw,4.5rem)]   /* динамический размер */
+              leading-[1.1]
             "
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
           >
             НАХОДИ И СОЗДАВАЙ
-          </motion.h1>
+          </h1>
 
-          {/* Subtitle */}
-          <motion.h2
+          {/* SECOND LINE */}
+          <h2
             className="
               font-extrabold 
-              text-3xl sm:text-4xl md:text-5xl lg:text-6xl 
-              text-primary mt-2 leading-tight max-w-[90%] mx-auto
+              text-primary 
+              whitespace-nowrap 
+              tracking-tight
+              mx-auto mt-2
+              animate-slide-up opacity-0 animation-delay-150
+              text-[clamp(1.4rem,5vw,3.8rem)]
+              leading-[1.1]
             "
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
           >
             идеальные путешествия
-          </motion.h2>
+          </h2>
 
-          {/* Description */}
-          <motion.p
+          {/* SUBTITLE */}
+          <p
             className="
-              mt-4 text-base sm:text-lg md:text-xl 
-              text-neutral-200 max-w-2xl mx-auto leading-relaxed
+              mt-4 
+              text-neutral-200 
+              max-w-2xl mx-auto 
+              leading-relaxed
+              animate-fade-in opacity-0 animation-delay-300
+              text-[clamp(0.9rem,2.5vw,1.3rem)]
             "
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2 }}
           >
             персональные маршруты, групповые поездки и авторские туры — всё в одном месте
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
         {/* Search Box */}
-        <motion.div
-          className="bg-card rounded-xl shadow-card-hover p-4 md:p-6 max-w-3xl mx-auto mt-8"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+        <div className="
+            bg-card rounded-xl shadow-card-hover 
+            p-4 md:p-6 max-w-2xl mx-auto
+            animate-fade-in opacity-0 animation-delay-500
+          "
         >
           {/* Search input */}
           <div className="relative mb-4">
@@ -105,12 +105,35 @@ export const HeroSection = () => {
               <ChevronDown className="w-4 h-4" />
             </button>
 
-            <Button variant="hero" className="w-full">
+            <Button variant="hero" className="w-full hover:scale-105 active:scale-95 transition-all">
               Найти тур
             </Button>
           </div>
-        </motion.div>
+        </div>
       </div>
+
+      {/* ANIMATION CLASSES */}
+      <style>{`
+        .animate-fade-in {
+          animation: fadeIn 0.8s ease forwards;
+        }
+        .animate-slide-up {
+          animation: slideUp 0.8s ease forwards;
+        }
+        .animation-delay-150 { animation-delay: .15s; }
+        .animation-delay-300 { animation-delay: .3s; }
+        .animation-delay-500 { animation-delay: .5s; }
+
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
     </section>
   );
 };
