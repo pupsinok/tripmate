@@ -31,11 +31,7 @@ export default function NotFound() {
           </Link>
 
           {/* Optional illustration */}
-          <img
-            className="mx-auto mt-10 w-full max-w-md opacity-90 animate-fade-in-slow"
-            src="https://illustrations.popsy.co/amber/astronaut-1.svg"
-            alt="Lost astronaut"
-          />
+       
         </div>
       </main>
 
